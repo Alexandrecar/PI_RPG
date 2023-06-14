@@ -69,7 +69,6 @@ def combate():
       print('TÁ ACHANDO QUE AQUI É NARUTO PRA VOCÊ CONVERSAR COM OS SEUS INIMIGOS?!!!')
       dano_no_player(12)
       print('KKKK Recebeu dano só pra deixar de ser otário.')
-      break
     else:
       print('TÁ BOBEANDO PORRA? ESCOLHE ALGUMA COISA KRL!!')
       combate()
