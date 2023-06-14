@@ -32,7 +32,7 @@ Kkkk, {nome}. Aiai, esses jovens de hoje em dia, senhor.''')
 
 def dano_no_player(dano):
   global vida
-  vida = vida-dano
+  vida-=dano
   if vida>0:
     print(Fore.BLUE + f'Oh não, perdi {dano} de vida. Tenho apenas {vida} de vida agora.')
   else:
@@ -41,7 +41,7 @@ OH! Se ao menos o Chapolim Colorado tivesse vindo ao meu resgate!!! AHH, que vid
 
 def dano_no_enemy(dano):
   global vidaE
-  vidaE = vidaE-dano
+  vidaE-=dano
   if vidaE>0:
     print(Fore.BLUE + f'Dei {dano} de dano. O cara está com {vidaE} de vida. ATACAR!!!!!!')
   else:
@@ -68,7 +68,7 @@ def combate():
     elif acao.lower() == 'conversar':
       print('TÁ ACHANDO QUE AQUI É NARUTO PRA VOCÊ CONVERSAR COM OS SEUS INIMIGOS?!!!')
       dano_no_player(12)
-      print('KKKK Recebeu dano só pra deixar de ser otário.')
+      print(Fore.RESET + 'KKKK Recebeu dano só pra deixar de ser otário.')
     else:
       print('TÁ BOBEANDO PORRA? ESCOLHE ALGUMA COISA KRL!!')
       combate()
