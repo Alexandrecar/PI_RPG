@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1OrYtNh6pa8GJvJkNivJYGy2yAodcZxOq
 """
 
-!pip install colorama
-
 #O RPG DO MAL, por enquanto só sistema de combate
 
 from random import choices
