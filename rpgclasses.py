@@ -34,7 +34,7 @@ jogador = personagem("place_holder", 100, [7,9], [10,2])
 
 inimigo = personagem("place_holder", 25, [18,21], [10,2])
 
-
+#sdsdfs
 
 
 def intro():
