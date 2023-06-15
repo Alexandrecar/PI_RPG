@@ -24,68 +24,19 @@ import colorama
 from colorama import Fore, Back, Style
 
 class personagem:
-  def __init__(self, nome, vida, dano, prob):
-    self.nome = nome
-    self.vida = vida
-    self.dano = dano
-    self.prob = prob
+  def __init__(self, nome, vida, dano, prob, cor):
+      self.nome = nome #nome do personagem
+      self.vida = vida #vida total do personagem
+      self.dano = dano #dano de ataque
+      self.prob = prob #probabilidade de dano normal e dano crítico
+      self.cor = cor #cor do texto associado ao personagem
 
-jogador = personagem("place_holder", 100, [7,9], [10,2])
+jogador = personagem("place_holder", 100, [7,9], [10,2],Fore.BLUE)
 
-inimigo = personagem("place_holder", 25, [18,21], [10,2])
+inimigo = personagem("place_holder", 25, [18,21], [10,2],Fore.RED)
+
+narrador = Fore.RESET #redefinindo a cor do texto de quando é o "narrador" falando
 
 #sdsdfs
 
 
-def intro():
-  print('Você acorda no meio do nada, apenas com um desejo insaciável de se aventurar.')
-  jogador.nome = input('Qual o seu nome grande aventureiro? ')
-  print(f'''Ahh, então você é {jogador.nome}...
-Que nome bobo. Enfim, sua jornada começa agora...
-Kkkk, {jogador.nome}. Aiai, esses jovens de hoje em dia, senhor.''')
-
-def dano_no_player(dano):
-  jogador.vida = jogador.vida-dano
-  if jogador.vida>0:
-    print(Fore.BLUE + f'Oh não, perdi {dano} de vida. Tenho apenas {jogador.vida} de vida agora.')
-  else:
-    print(Fore.BLUE + f"""OH!!! Recebi {dano} de dano e minha vida chegou ao fim. Um golpe extremamente fatal. Estou vendo minha vida passar diante de meus olhos.
-OH! Se ao menos o Chapolim Colorado tivesse vindo ao meu resgate!!! AHH, que vida mais injusta! Maldito seja você, ó mundo cruel!!!! Fim de minha jornada magnífica""")
-
-def dano_no_enemy(dano):
-  inimigo.vida = inimigo.vida-dano
-  if inimigo.vida>0:
-    print(Fore.BLUE + f'Dei {dano} de dano. O cara está com {inimigo.vida} de vida. ATACAR!!!!!!')
-  else:
-    print(Fore.BLUE + f"DANDO {dano} DE DANO EU ME TORNO O EXTERMINADOR DE TODO MAU!!! MORRA, CRIA DO DIABO, POIS EU SOU O ARAUTO DE TODOS OS PODERES DIVINOS!!! MUAHAHAHAHA.")
-
-def combate():
-  while jogador.vida>0:
-    print(Fore.RESET + 'O que você quer fazer?')
-    acao = input('Atacar, fugir, ou conversar? ')
-    if acao.lower() == 'atacar' and jogador.vida>0:
-      dano_no_enemy(int(choices(jogador.dano, jogador.prob)[0]))
-      if inimigo.vida>0:
-        print(Fore.RED + 'O inimigo decidiu atacar!')
-        dano_no_player(int(choices(inimigo.dano, inimigo.prob)[0]))
-      else:
-        break
-    elif acao.lower() == 'fugir':
-      print('Ao tentar fugir, você tropeça.', Fore.RED + 'O inimigo aproveita sua incompetência e ataca!')
-      dano_no_player(int(choices(inimigo.dano, inimigo.prob)[0]))
-      combate()
-      break
-    elif acao.lower() == 'conversar':
-      print('TÁ ACHANDO QUE AQUI É NARUTO PRA VOCÊ CONVERSAR COM OS SEUS INIMIGOS?!!!')
-      dano_no_player(12)
-      print('KKKK Recebeu dano só pra deixar de ser otário.')
-    else:
-      print('TÁ BOBEANDO PORRA? ESCOLHE ALGUMA COISA KRL!!')
-      combate()
-      break
-
-def main():
-  intro()
-  combate()
-
-main()
