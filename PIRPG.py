@@ -29,19 +29,19 @@ Que nome bobo. Enfim, sua jornada começa agora...
 Kkkk, {jogador.nome}. Aiai, esses jovens de hoje em dia, senhor.''')
 
 def dano_no_player(dano):
-  jogador.vida = jogador.vida-dano
-  if jogador.vida>0:
-    print(jogador.cor + f'Oh não, perdi {dano} de vida. Tenho apenas {jogador.vida} de vida agora.')
-  else:
-    print(jogador.cor + f"""OH!!! Recebi {dano} de dano e minha vida chegou ao fim. Um golpe extremamente fatal. Estou vendo minha vida passar diante de meus olhos.
+    jogador.vida = jogador.vida-dano
+    if jogador.vida>0:
+        print(jogador.cor + f'Oh não, perdi {dano} de vida. Tenho apenas {jogador.vida} de vida agora.')
+    else:
+        print(jogador.cor + f"""OH!!! Recebi {dano} de dano e minha vida chegou ao fim. Um golpe extremamente fatal. Estou vendo minha vida passar diante de meus olhos.
 OH! Se ao menos o Chapolim Colorado tivesse vindo ao meu resgate!!! AHH, que vida mais injusta! Maldito seja você, ó mundo cruel!!!! Fim de minha jornada magnífica""")
 
 def dano_no_enemy(dano):
-  inimigo.vida = inimigo.vida-dano
-  if inimigo.vida>0:
-    print(jogador.cor + f'Dei {dano} de dano. O cara está com {inimigo.vida} de vida. ATACAR!!!!!!')
-  else:
-    print(jogador.cor + f"DANDO {dano} DE DANO EU ME TORNO O EXTERMINADOR DE TODO MAU!!! MORRA, CRIA DO DIABO, POIS EU SOU O ARAUTO DE TODOS OS PODERES DIVINOS!!! MUAHAHAHAHA.")
+    inimigo.vida = inimigo.vida-dano
+    if inimigo.vida>0:
+        print(jogador.cor + f'Dei {dano} de dano. O cara está com {inimigo.vida} de vida. ATACAR!!!!!!')
+    else:
+        print(jogador.cor + f"DANDO {dano} DE DANO EU ME TORNO O EXTERMINADOR DE TODO MAU!!! MORRA, CRIA DO DIABO, POIS EU SOU O ARAUTO DE TODOS OS PODERES DIVINOS!!! MUAHAHAHAHA.")
 
 def combate():
     while jogador.vida>0:
