@@ -1,0 +1,6 @@
+from rpgclasses import*
+
+def dano_no_player(combatente):
+    print(combatente.dano)
+
+dano_no_player(inimigo)
