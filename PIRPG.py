@@ -31,8 +31,6 @@ def viagem():
             print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')
             destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
             
-            
-
 #função de causar dano, pode ser usada com dois objetos-personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
     if type(agressor) == int:
