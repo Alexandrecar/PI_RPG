@@ -1,5 +1,5 @@
+'''classes'''
 from random import choices
-import colorama
 from colorama import Fore, Back, Style
 
 class personagem:
@@ -12,8 +12,10 @@ class personagem:
       self.fala_agressao = fala_agressao #fala ao atacar
       self.fala_finalizacao = fala_finalizacao #fala ao finalizar
 
-jogador = personagem("place_holder", 100, [7,9], [10,2],Fore.BLUE, "atacando", "gg ez")
+jogador = personagem("place_holder", 100, [7,9], [15,2],Fore.BLUE, "atacando", "gg ez")
 
-inimigo = personagem("place_holder", 25, [18,21], [10,2],Fore.RED, "cutucada", "tu eh ruim em, perdeu no tutorial besta")
+inimigo = personagem("my enemy", 25, [18,21], [15,2],Fore.RED, "cutucada", "tu eh ruim em, perdeu no tutorial besta")
 
 narrador = Fore.RESET #redefinindo a cor do texto de quando é o "narrador" falando
+
+print(jogador.cor + 'alou')

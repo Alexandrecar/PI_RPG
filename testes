@@ -4,3 +4,15 @@ def dano_no_player(combatente):
     print(combatente.dano)
 
 dano_no_player(inimigo)
+
+def viagem():
+    lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
+    print("Há uma placa com os seguintes lugares.")
+    for i in range(len(lugares)):
+        print(lugares[i])
+    destino = input('Para onde desejas ir, nobre viajante?')
+    for j in range(len(lugares)):
+        if destino.lower() == lugares[j].lower():
+            print(f'Você decide caminhar até {lugares[j]}')
+        else:
+            print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')

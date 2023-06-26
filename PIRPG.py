@@ -1,4 +1,4 @@
-#O RPG DO MAL, por enquanto só sistema de combate
+'''#O RPG DO MAL, por enquanto só sistema de combate'''
 
 #importando as calsses e objetos criados (variaveis dos personagens)
 from rpgclasses import*
@@ -9,6 +9,18 @@ def intro():
     print(f'''Ahh, então você é {jogador.nome}...
 Que nome bobo. Enfim, sua jornada começa agora...
 Kkkk, {jogador.nome}. Aiai, esses jovens de hoje em dia, senhor.''')
+    
+def viagem():
+    lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
+    print("Há uma placa com os seguintes lugares.")
+    for i in range(len(lugares)):
+        print(lugares[i])
+    destino = input('Para onde desejas ir, nobre viajante?')
+    for j in range(len(lugares)):
+        if destino.lower() == lugares[j].lower():
+            print(f'Você decide caminhar até {lugares[j]}')
+        else:
+            print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')
 
 #função de causar dano, pode ser usada com dois objetos-personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
@@ -19,7 +31,7 @@ def causar_dano(agressor, vitima):
         print(agressor.fala_agressao)
 
     vitima.vida -= dano_causado
-    print(vitima.cor + f'vida: {vitima.vida}', inimigo.cor + f'(-{dano_causado})')
+    print(vitima.cor + f'{vitima.nome} - vida: {vitima.vida}', inimigo.cor + f'(-{dano_causado})')
     if vitima.vida<=0:
         print(agressor.cor + agressor.fala_finalizacao)
 
