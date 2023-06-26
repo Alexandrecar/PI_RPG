@@ -9,18 +9,29 @@ def intro():
     print(f'''Ahh, então você é {jogador.nome}...
 Que nome bobo. Enfim, sua jornada começa agora...
 Kkkk, {jogador.nome}. Aiai, esses jovens de hoje em dia, senhor.''')
-    
-def viagem():
+
+#função para escolher para onde o player irá dentre os lugares na
+def viagem(): 
     lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
-    print("Há uma placa com os seguintes lugares.")
+    print(narrador+"Há uma placa com os seguintes lugares.")
     for i in range(len(lugares)):
-        print(lugares[i])
-    destino = input('Para onde desejas ir, nobre viajante?')
-    for j in range(len(lugares)):
-        if destino.lower() == lugares[j].lower():
-            print(f'Você decide caminhar até {lugares[j]}')
+        print("    ",lugares[i])
+    j=0
+    destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
+    while j != len(lugares):
+        if destino.lower() in map(str.lower, lugares):
+            if destino.lower() == lugares[j].lower():
+                print(f'Você decide caminhar até {lugares[j]}')
+                break
+            elif destino.lower() != lugares[j].lower():
+                j+=1
+        elif destino.lower() == 's':
+            break
         else:
             print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')
+            destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
+            
+            
 
 #função de causar dano, pode ser usada com dois objetos-personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
@@ -36,6 +47,7 @@ def causar_dano(agressor, vitima):
         print(agressor.cor + agressor.fala_finalizacao)
 
 def combate():
+    print(f'Você se depara com um {inimigo.cor + inimigo.nome + narrador} selvagem')
     while jogador.vida>0 and inimigo.vida>0:
         print(narrador + 'O que você quer fazer?')
         acao = input('Atacar, fugir, ou conversar? ')
@@ -59,5 +71,6 @@ def combate():
 def main():
     intro()
     combate()
+    viagem()
 
 main()

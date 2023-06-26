@@ -17,5 +17,3 @@ jogador = personagem("place_holder", 100, [7,9], [15,2],Fore.BLUE, "atacando", "
 inimigo = personagem("my enemy", 25, [18,21], [15,2],Fore.RED, "cutucada", "tu eh ruim em, perdeu no tutorial besta")
 
 narrador = Fore.RESET #redefinindo a cor do texto de quando é o "narrador" falando
-
-print(jogador.cor + 'alou')
