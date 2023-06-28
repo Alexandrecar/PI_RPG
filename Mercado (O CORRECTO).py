@@ -37,8 +37,8 @@ def prodmaisvendido(carrinho):
     elif carrinho[prod_max] == carrinho[j] and prod_max != j:
       print(f'{prod_max} e {j} são os produtos mais vendidos com {carrinho[prod_max]} unidades.')
       doisprod=True
-    elif doisprod==False:
-      print(f'{prod_max} é o produto mais vendido com {carrinho[prod_max]} unidades')
+  if doisprod==False and not (all(value == carrinho[prod_max] for value in carrinho.values())):
+    print(f'{prod_max} é o produto mais vendido com {carrinho[prod_max]} unidades')
 
 
 
