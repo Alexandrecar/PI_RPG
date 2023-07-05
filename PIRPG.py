@@ -70,7 +70,7 @@ def combate():
 
 def main():
     intro()
-    #combate()
+    combate()
     viagem()
 
 main()
