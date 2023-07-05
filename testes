@@ -16,3 +16,14 @@ def viagem():
             print(f'Você decide caminhar até {lugares[j]}')
         else:
             print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')
+
+lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
+print(lugares.index(lugares[0]))
+print(type(lugares.index(lugares[0])))
+
+destino = str((lugares.index(lugares[0]))+1)
+print(destino)
+print(type(destino))
+sla = input('alo?: ')
+print(sla)
+print(type(sla))

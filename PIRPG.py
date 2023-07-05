@@ -15,21 +15,23 @@ def viagem():
     lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
     print(narrador+"Há uma placa com os seguintes lugares.")
     for i in range(len(lugares)):
-        print("    ",lugares[i])
+        print("    "+f"{i+1}.",lugares[i])
     j=0
     destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
+    #print(destino)
     while j != len(lugares):
-        if destino.lower() in map(str.lower, lugares):
-            if destino.lower() == lugares[j].lower():
+        if destino.lower() in map(str.lower, lugares) or int(destino) in range(1,len(lugares)):
+            if destino.lower() == lugares[j].lower() or destino == str((lugares.index(lugares[j]))+1):
                 print(f'Você decide caminhar até {lugares[j]}')
                 break
-            elif destino.lower() != lugares[j].lower():
+            elif destino.lower() != lugares[j].lower() and destino != str((lugares.index(lugares[j]))+1):
                 j+=1
         elif destino.lower() == 's':
             break
         else:
             print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')
             destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
+            print(destino)
             
 #função de causar dano, pode ser usada com dois objetos-personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
@@ -68,7 +70,7 @@ def combate():
 
 def main():
     intro()
-    combate()
+    #combate()
     viagem()
 
 main()
