@@ -1,6 +1,7 @@
 '''classes'''
 from random import choices
 from colorama import Fore, Back, Style
+import time
 
 class personagem:
   def __init__(self, nome, vida, dano, prob, cor, fala_agressao, fala_finalizacao):

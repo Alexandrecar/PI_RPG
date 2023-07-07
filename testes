@@ -1,6 +1,7 @@
 from rpgclasses import*
+import time
 
-def dano_no_player(combatente):
+'''def dano_no_player(combatente):
     print(combatente.dano)
 
 dano_no_player(inimigo)
@@ -26,4 +27,8 @@ print(destino)
 print(type(destino))
 sla = input('alo?: ')
 print(sla)
-print(type(sla))
+print(type(sla))'''
+
+
+
+print(f"{i}" for i in range(1,5))

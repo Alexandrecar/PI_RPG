@@ -13,27 +13,31 @@ Kkkk, {jogador.nome}. Aiai, esses jovens de hoje em dia, senhor.''')
 #função para escolher para onde o player irá dentre os lugares na
 def viagem(): 
     lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
-    print(narrador+"Há uma placa com os seguintes lugares.")
+    print(narrador+"Há uma placa com os seguintes lugares:")
+    time.sleep(0.3)
     for i in range(len(lugares)):
         print("    "+f"{i+1}.",lugares[i])
+        time.sleep(0.2)
+    time.sleep(0.1)
     j=0
-    destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
-    #print(destino)
+    print('Para onde desejas ir, nobre viajante?')
+    destino = input('[Digite o nome completo do lugar ou seu índice - S para sair]: ')
     while j != len(lugares):
-        if destino.lower() in map(str.lower, lugares) or int(destino) in range(1,len(lugares)):
-            if destino.lower() == lugares[j].lower() or destino == str((lugares.index(lugares[j]))+1):
-                print(f'Você decide caminhar até {lugares[j]}')
+        if destino.lower() in map(str.lower, lugares) or destino in (f"{i}" for i in range(1,len(lugares)+1)):
+            if destino.lower() == lugares[j].lower() or destino == str(j+1):
+                print(f'Você decide caminhar até {lugares[j]}.')
                 break
-            elif destino.lower() != lugares[j].lower() and destino != str((lugares.index(lugares[j]))+1):
+            elif destino.lower() != lugares[j].lower() and destino != str(j+1):
                 j+=1
         elif destino.lower() == 's':
             break
         else:
             print('Aprenda a ler e decida ir pra algum lugar existente, por favor.')
-            destino = input('Para onde desejas ir, nobre viajante? (s para sair) ')
-            print(destino)
+            time.sleep(0.28)
+            print('Para onde desejas ir, nobre viajante?')
+            destino = input('[Digite o nome completo do lugar ou seu índice - S para sair]: ')
             
-#função de causar dano, pode ser usada com dois objetos-personagens ou uma int e um objeto que recebe o dano
+#função de causar dano, pode ser usada com dois objetos/personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
     if type(agressor) == int:
         dano_causado = agressor
@@ -70,7 +74,7 @@ def combate():
 
 def main():
     intro()
-    #combate()
+    combate()
     viagem()
 
 main()
