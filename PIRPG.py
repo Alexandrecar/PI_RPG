@@ -1,4 +1,4 @@
-'''#O RPG DO MAL, por enquanto só sistema de combate'''
+'''#O RPG DO MAL'''
 
 #importando as calsses e objetos criados (variaveis dos personagens)
 from rpgclasses import*
@@ -11,7 +11,8 @@ Que nome bobo. Enfim, sua jornada começa agora...
 Kkkk, {jogador.nome}. Aiai, esses jovens de hoje em dia, senhor.''')
 
 #função para escolher para onde o player irá dentre os lugares na
-def viagem(): 
+def viagem():
+    global lugar
     lugares = ['Floresta das Almas Perdidas', 'Vila Curuçá', 'Lago das Águas Passadas', 'Caverna dos Românticos Inconsequentes']
     print(narrador+"Há uma placa com os seguintes lugares:")
     time.sleep(0.3)
@@ -26,6 +27,8 @@ def viagem():
         if destino.lower() in map(str.lower, lugares) or destino in (f"{i}" for i in range(1,len(lugares)+1)):
             if destino.lower() == lugares[j].lower() or destino == str(j+1):
                 print(f'Você decide caminhar até {lugares[j]}.')
+                lugar = lugares[j]
+                lugar = lugar.replace(' ', '')+'()'
                 break
             elif destino.lower() != lugares[j].lower() and destino != str(j+1):
                 j+=1
@@ -36,7 +39,24 @@ def viagem():
             time.sleep(0.28)
             print('Para onde desejas ir, nobre viajante?')
             destino = input('[Digite o nome completo do lugar ou seu índice - S para sair]: ')
-            
+    eval(lugar.lower())
+
+def florestadasalmasperdidas():
+    print('A floresta tem um ar misterioso. O que quer fazer, incrível aventureiro? ')
+    acao = input('Caminhar, voltar, ou cantar? ')
+    while acao.lower() != 'caminhar' and acao.lower() != 'voltar' and acao.lower() != 'cantar':
+        if acao.lower() == 'caminhar':
+            choices([combate(), ''], [50,50])
+        elif acao.lower() == 'voltar':
+            viagem()
+        elif acao.lower() == 'cantar':
+            print('O seu magnificamente horrendo canto atrai uma alcateia de lobos que te atacam.\nVocê não tem chance de se defender.\nGame over, filhão.')
+            time.sleep(1)
+            intro()
+        else:
+            print('Escolhe alguma coisa logo, porra.')
+            acao = input('Caminhar, voltar, ou cantar? ')
+
 #função de causar dano, pode ser usada com dois objetos/personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
     if type(agressor) == int:
@@ -74,7 +94,7 @@ def combate():
 
 def main():
     intro()
-    combate()
     viagem()
+    
 
 main()
