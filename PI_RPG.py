@@ -43,11 +43,12 @@ def viagem():
     eval(lugar.lower())
 
 def florestadasalmasperdidas():
+    time.sleep(4)
     print('A floresta tem um ar misterioso. O que quer fazer, incrível aventureiro? ')
-    acao = input('Caminhar, cantar, ou voltar? ')
+    acao = input('1. Caminhar\n2. Cantar\n3. Voltar\n[Digite o nome da ação ou seu índice]: ')
     i = 0
     while i != 1:
-        if acao.lower() == 'caminhar':
+        if acao.lower() == 'caminhar' or acao == '1':
                 if randint(1,3) == 1:
                     combate()
                     time.sleep(0.35)
@@ -55,78 +56,88 @@ def florestadasalmasperdidas():
                 time.sleep(0.2)
                 print('Você caminha e caminha, mas nada encontra. Parece que os devs esqueceram de colocar alguma coisa aqui.')
                 i+=1
-        elif acao.lower() == 'voltar':
-                i+=1
-                viagem()
-        elif acao.lower() == 'cantar':
+        elif acao.lower() == 'cantar' or acao == '2':
                 print('O seu magnificamente horrendo canto atrai uma alcateia de lobos que te atacam.\nVocê não tem chance de se defender.\nGame over, filhão.')
                 time.sleep(1)
                 i+=1
                 main()
+        elif acao.lower() == 'voltar' or acao == '3':
+                i+=1
+                viagem()
         else:
             print('Escolhe alguma coisa logo, porra.')
             acao = input('Caminhar, voltar, ou cantar? ')
     
 def vilacuruçá():
+    time.sleep(4)
     print('Você vê as pessoas andando pela vila pacificamente. O que quer fazer, incrível aventureiro? ')
-    acao = input('Conversar, atacar, ou voltar? ')
+    acao = input('1. Conversar\n2. Atacar\n3. Voltar\n[Digite o nome da ação ou seu índice]: ')
     i = 0
     while i != 1:
-        if acao.lower() == 'conversar':
+        if acao.lower() == 'conversar' or acao == '1':
                 j=0
                 time.sleep(0.2)
                 print('Ao observar uma moça a caminhar pela vila, provavelmente voltando para casa, você se aproxima dela para conversar.')
-                time.sleep(0.3)
-                print('O que você faz? ')
-                acao2 = int(input('1. Pergunta como as coisas vão nessa vila.\n2. Paquera a jovem moça.\n[Escolha apenas o índice.]: '))
+                time.sleep(5.5)
+                print('O que quer fazer? ')
+                acao2 = int(input('1. Perguntar como as coisas vão nessa vila.\n2. Paquerar a jovem moça.\n[Escolha apenas o índice.]: '))
                 while j !=1:
                     if acao2 == 1:
+                        print(jogador.cor+f'{jogador.nome}: ',narrador+'Como andam as coisas nessa vila, se me permite perguntar, jovem moça?')
+                        time.sleep(5)
                         print('Jovem moça: Hm... As coisas vão bem, aparentemente. Nada a se preocupar mesmo.')
-                        time.sleep(0.25)
+                        time.sleep(4)
                         print('Ao ouvir da jovem moça que a vila Curuçá está bem, você percebe que não há nada a se fazer ali e decide ir para outro lugar.')
-                        time.sleep(0.5)
+                        time.sleep(5.5)
                         i+=1
                         j+=1
                         viagem()
                     if acao2 == 2:
-                        print('Jovem moça: Eu sou casada, seu pervertido.')
-                        time.sleep(0.2)
-                        print('Após seu cortejo dar errado, alguns guardas se aproximam de você.')
-                        time.sleep(0.2)
+                        print(jogador.cor+f'{jogador.nome}: ',narrador+'Você vem sempre aqui, jovem donzela? Ao ver teu belo corpo não consegui deixar de imaginar nós dois juntos')
+                        time.sleep(5)
+                        print(jogador.cor+f'{jogador.nome}: ',narrador+'Um jantar talvez? Para nos conhecermos e bebermos um pouco até a noite ficar divertida?')
+                        time.sleep(5)
+                        print('Jovem moça: Eu sou casada, seu pervertido do caralho.')
+                        time.sleep(4)
+                        print('Após seu "cortejo" (há quem ache que aquilo não tem problema?) dar errado, alguns guardas se aproximam de você.')
+                        time.sleep(5)
                         print('Guarda: Não toleramos assédio nessas redondezas, escória. Você está preso.')
-                        time.sleep(0.2)
+                        time.sleep(4)
                         print('Game over. Você deveria ter vergonha de você. Agora você apodrecerá na prisão.')
-                        time.sleep(1)
+                        time.sleep(5)
                         i+=1
                         j+=1
                         main()
                 while acao2 != 1 and acao2 != 2:
                     print('O gato comeu a sua língua? Escolhe alguma opção que existe logo, abestado.')
                     acao2 = int(input('1. Pergunta como as coisas vão nessa vila.\n2. Paquera a jovem moça. '))
-        elif acao.lower() == 'voltar':
-                i+=1
-                viagem()
-        elif acao.lower() == 'atacar':
+        elif acao.lower() == 'atacar' or acao == '2':
                 print('Você começa a atacar as pessoas da vila, sem nenhum motivo. Elas entram em pânico.\nAo ouvirem a comoção, os guardas da vila logo chegam no local.')
-                time.sleep(0.2)
+                time.sleep(4)
                 print('Ao avistarem o seu massacre, eles não perdem por esperar e te atacam. Você morre sem causar nenhuma vítima, felizmente.')
-                time.sleep(0.2)
+                time.sleep(4)
                 print('Game over. Seu otário.')
-                time.sleep(1)
+                time.sleep(3)
                 i+=1
                 main()
+        elif acao.lower() == 'voltar' or acao == '3':
+                i+=1
+                viagem()
         else:
             print('Escolhe alguma coisa logo, porra.')
             acao = input('Conversar, atacar, ou voltar? ')
 
 def lagodaságuaspassadas():
-     if randint(1,3) == 1:
+    time.sleep(4)
+    if randint(1,3) == 1:
           combate()
           time.sleep(0.35)
-          print('Você vence o seu inimigo... E olha ao redor.')
-     print('Observando a paisagem você percebe uma coisa esplêndida... Não tem nada aqui ainda...')
+          print(narrador+'Você vence o seu inimigo... E olha ao redor.')
+    time.sleep(0.35)
+    print('Observando a paisagem você percebe uma coisa esplêndida... Não tem nada aqui ainda.')
 
 def cavernadosromânticosinconsequentes():
+    time.sleep(4)
     print('Você adentra a caverna ao ouvir alguns sons estranhos.')
     time.sleep(3)
     print('Uma figura misteriosa se aproxima agressivamente. Você não consegue ver direito, pois está muito escuro.')
@@ -170,18 +181,18 @@ def combate():
     print(f'Você se depara com um {inimigo.cor + inimigo.nome + narrador} selvagem')
     while jogador.vida>0 and inimigo.vida>0:
         print(narrador + 'O que você quer fazer?')
-        acao = input('Atacar, fugir, ou conversar? ')
-        if acao.lower() == 'atacar':
+        acao = input('1. Atacar\n2. Fugir\n3. Conversar\n[Digite o nome da ação ou seu índice]: ')
+        if acao.lower() == 'atacar' or int(acao) == 1:
             causar_dano(jogador, inimigo)
             if inimigo.vida>0:
                 print(inimigo.cor + 'O inimigo decidiu atacar!')
                 causar_dano(inimigo, jogador)
             else:
                 break
-        elif acao.lower() == 'fugir':
+        elif acao.lower() == 'fugir' or int(acao) == 2:
             print('Ao tentar fugir, você tropeça.', inimigo.cor + 'O inimigo aproveita sua incompetência e ataca!')
             causar_dano(inimigo, jogador)
-        elif acao.lower() == 'conversar':
+        elif acao.lower() == 'conversar' or int(acao) == 3:
             print(narrador + 'TÁ ACHANDO QUE AQUI É NARUTO PRA VOCÊ CONVERSAR COM OS SEUS INIMIGOS?!!!')
             causar_dano(12, jogador)
             print(narrador + 'KKKK Recebeu dano só pra deixar de ser otário.')
