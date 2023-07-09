@@ -1,5 +1,5 @@
 '''classes'''
-from random import choices
+from random import choices,randint
 from colorama import Fore, Back, Style
 import time
 
