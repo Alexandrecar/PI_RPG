@@ -41,9 +41,9 @@ def viagem():
             print('Para onde desejas ir, nobre viajante?')
             destino = input('[Digite o nome completo do lugar ou seu índice - S para sair]: ')
     eval(lugar.lower())
+    time.sleep(1)
 
 def florestadasalmasperdidas():
-    time.sleep(4)
     print('A floresta tem um ar misterioso. O que quer fazer, incrível aventureiro? ')
     acao = input('1. Caminhar\n2. Cantar\n3. Voltar\n[Digite o nome da ação ou seu índice]: ')
     i = 0
@@ -69,7 +69,6 @@ def florestadasalmasperdidas():
             acao = input('Caminhar, voltar, ou cantar? ')
     
 def vilacuruçá():
-    time.sleep(4)
     print('Você vê as pessoas andando pela vila pacificamente. O que quer fazer, incrível aventureiro? ')
     acao = input('1. Conversar\n2. Atacar\n3. Voltar\n[Digite o nome da ação ou seu índice]: ')
     i = 0
@@ -128,7 +127,6 @@ def vilacuruçá():
             acao = input('Conversar, atacar, ou voltar? ')
 
 def lagodaságuaspassadas():
-    time.sleep(4)
     if randint(1,3) == 1:
           combate()
           time.sleep(0.35)
@@ -137,7 +135,6 @@ def lagodaságuaspassadas():
     print('Observando a paisagem você percebe uma coisa esplêndida... Não tem nada aqui ainda.')
 
 def cavernadosromânticosinconsequentes():
-    time.sleep(4)
     print('Você adentra a caverna ao ouvir alguns sons estranhos.')
     time.sleep(3)
     print('Uma figura misteriosa se aproxima agressivamente. Você não consegue ver direito, pois está muito escuro.')
