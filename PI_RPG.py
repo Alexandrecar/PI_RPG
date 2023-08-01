@@ -373,16 +373,18 @@ def combate():
         elif acao.lower() == 'fugir' or int(acao) == 2:
             if inicio == 1:
                  print('Sua mente te diz para fugir, mas seu coração super valente te faz manter a sua decisão de proteger as duas pessoas indefesas.')
+            elif quest2 == 1:
+                 print('A presença desse monstro te dá uma única certeza. Não tem como fugir. Você precisa lutar.')
             else:  
                 print('Você vira suas costas ao seu adversário e sai correndo com o rabo entre as pernas.')
                 time.sleep(1)
                 break
         elif acao.lower() == 'conversar' or int(acao) == 3:
-            print(narrador + 'TÁ ACHANDO QUE AQUI É NARUTO PRA VOCÊ CONVERSAR COM OS SEUS INIMIGOS?!!!')
+            print(narrador + 'Você não achou mesmo que conversar com um monstro iria adiantar alguma coisa né, kkkk?!')
             causar_dano(12, jogador)
-            print(narrador + 'KKKK Recebeu dano só pra deixar de ser otário.')
+            print(narrador + 'Recebeu dano só pra parar de ficar bobeando aí.')
         else:
-            print('TÁ BOBEANDO PORRA? ESCOLHE ALGUMA COISA KRL!!')
+            print('Escolha logo!!! Você tá no meio de uma batalha!!!')
 
 def main():
     intro()
