@@ -28,4 +28,47 @@ sla = input('alo?: ')
 print(sla)
 print(type(sla))'''
 
-print(f"{i}" for i in range(1,5))
+#print(f"{i}" for i in range(1,5))
+
+a = [[jogador.nome[0],0,1,1,1],[1,0,1,1,1],[1,0,1,0,'x'],[1,0,0,0,1],[1,1,1,1,1]]
+def mostra_matriz(matriz):
+  for linha in matriz:
+    print(*linha)
+
+def percorre_labirinto(matriz):
+    mostra_matriz(matriz)
+    P = jogador.nome[0]
+    while matriz[2][4] != P:
+        print('Você quer andar:')
+        coluna = input('Para esquerda ou para direita (0 para nenhum): ')
+        
+        if coluna.lower() == 'esquerda':
+            coluna = '-1'
+        elif coluna.lower() == 'direita':
+            coluna = '1'
+        
+        linha = input('Para cima ou para baixo (0 para nenhum): ')
+        if linha.lower() == 'cima':
+            linha = '-1'
+        elif linha.lower() == 'baixo':
+            linha = '1'
+
+        elif (coluna.lower() != 'esquerda' and coluna.lower() != 'direita' and coluna != '0'):
+            print('Entrada inválida. Digite novamente para onde você quer ir.')
+            coluna = '0'
+            linha = '0'
+        
+        #Continuar a acertar. Falta coisa
+
+        for n_lin in range(len(matriz)):
+            if P in matriz[n_lin]:
+                Px = matriz[n_lin].index(P)
+                Py = matriz.index(matriz[n_lin])
+        if matriz[Py+int(linha)][Px+int(coluna)] != 1:
+            matriz[Py][Px] = 0
+            matriz[Py+int(linha)][Px+int(coluna)] = P
+        else:
+           print('Você se depara com uma parede.')
+        mostra_matriz(matriz)
+percorre_labirinto(a)
+#print(a[0][a[0].index(jogador.nome[0])])
