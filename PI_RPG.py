@@ -7,7 +7,7 @@ def intro():
     global lugar, inicio, quest, quest2
     inicio = 1
     quest = 0
-    quest2 = 0
+    quest2 = 1
     print(narrador + 'Você acorda no meio de uma floresta, apenas com um desejo insaciável de se aventurar.')
     jogador.nome = input('Qual o seu nome grande aventureiro? ')
     print('Ahh, então você é',jogador.cor+jogador.nome,narrador+'...')
@@ -247,7 +247,7 @@ def vilacuruçá():
         acao = input('1. Conversar\n2. Atacar\n3. Viajar\n[Digite o nome da ação ou seu índice]: ')
 
 def lagodaságuaspassadas():
-    global
+    global quest, quest2
     if randint(1,3) == 1:
           escolher_inimigo_comum()
           combate()
