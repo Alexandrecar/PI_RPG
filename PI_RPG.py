@@ -145,6 +145,7 @@ def vilacuruçá():
                     print('Ao olhar ao redor, você encontra Matilda e Flora. Você se aproxima para conversar.')
                     time.sleep(3.5)
                     print('Matilda: Oh. Você veio, que bom. Diga-me,',jogador.cor+jogador.nome+narrador+'. Há alguma coisa que eu possa fazer por você como agradecimento?')
+                    print('O que deseja fazer?')
                     acao2 = int(input('1. Perguntar sobre tesouros\n2. Pedir apenas uma refeição quente\n[Digite o índice da ação.]: '))
                     while j !=1:
                         if acao2 == 1:
@@ -197,7 +198,7 @@ def vilacuruçá():
                     time.sleep(0.2)
                     print('Ao observar uma moça a caminhar pela vila, provavelmente voltando para casa, você se aproxima dela para conversar.')
                     time.sleep(5.5)
-                    print('O que deseja fazer? ')
+                    print('O que deseja fazer?')
                     acao2 = int(input('1. Perguntar como as coisas vão nessa vila.\n2. Paquerar a jovem moça.\n[Digite o índice da ação.]: '))
                     while j !=1:
                         if acao2 == 1:
@@ -260,7 +261,7 @@ def lagodaságuaspassadas():
     while i != 1:
         if acao.lower() == 'lago' or acao == '1':
             #fazer o jogador olhar para o lago e aos poucos ir sendo consumido por ele, até se afogar. Final 4/6
-            return True
+            print('Nada aqui ainda')
         elif acao.lower() == 'caverna' or acao == '2':
             caverna()
         elif acao.lower() == 'viajar' or acao == '3':
@@ -283,20 +284,20 @@ def caverna():
         time.sleep(7)
         print('Você continua a explorar a caverna.')
         time.sleep(3)
-        print('Há um caminho estreito e extremamente escuro à frente. Por sorte, você consegue exergá-lo o suficiente para não tropeçar com a sua lamparina.')
+        print('Há um corredor estreito e extremamente escuro à frente. Por sorte, você consegue exergá-lo o suficiente para não tropeçar com a sua lamparina.')
         time.sleep(6)
         labirinto = [[jogador.nome[0],0,1,1,1],[1,0,1,1,1],[1,0,1,0,'x'],[1,0,0,0,1],[1,1,1,1,1]]
         percorre_labirinto(labirinto)
-        print('Ao sair do labiritno, você encontra uma parede com uma escritas claramente não-humanas.')
+        print('Saindo do corredor, você encontra uma parede com uma escritas claramente não-humanas.')
         time.sleep(5)
         print('Mas você, por algum motivo definitivamente não importante, consegue lê-las fluentemente.')
         time.sleep(5)
         print('Você pronuncia as palavras escritas na parede e uma passagem se abre.')
         time.sleep(5)
-        print('Antes de entrar na passagem, é possível sentir uma presença assustadora do outro lado.')
+        print('É possível sentir uma presença assustadora do outro lado da passagem misteriosa.')
         time.sleep(4)
         print('O que deseja fazer?')
-        acao2 = int(input('1. Olha ao redor\n2. Segue em frente mesmo assim\n[Digite o índice da ação.]: '))
+        acao2 = int(input('1. Olhar ao redor\n2. Seguir em frente mesmo assim\n[Digite o índice da ação.]: '))
         check=0
         while check != 1:
             if acao2 == 1:
@@ -310,7 +311,7 @@ def caverna():
                 check += 1
             elif acao2 != 1 and acao2 != 2:
                 print('Decida-se, por favor.')
-                acao2 = int(input('1. Olha ao redor\n2. Segue em frente mesmo assim\n[Digite o índice da ação.]: '))
+                acao2 = int(input('1. Olhar ao redor\n2. Seguir em frente mesmo assim\n[Digite o índice da ação.]: '))
         print('Uma criatura medonha e sem forma definida aparece diante de você.')
         inimigo.nome = lista_inimigos_especiais[1]
         inimigo.dano = inimigos_especiais_dano[1]
@@ -322,7 +323,7 @@ def caverna():
         time.sleep(3)
         print('Nela está escrito:')
         time.sleep(2)
-        print('"Parabéns,',jogador.cor+jogador.nome,narrador+'por chegar até aqui. Deve ter sido um saco."')
+        print('"Parabéns,',jogador.cor+jogador.nome+narrador+', por chegar até aqui. Deve ter sido um saco."')
         time.sleep(5)
         print('"Pode ser decepcionante passar por tudo isso e encontrar apenas uma carta."')
         time.sleep(5)
@@ -334,7 +335,7 @@ def caverna():
         time.sleep(5)
         print('"Então..."')
         time.sleep(2)
-        print('"O que deseja fazer, novo aventureiro(a)?"')
+        print('"O que deseja fazer, verdadeiro(a) aventureiro(a)?"')
         time.sleep(3)
         print('Final 6/6')
         raise SystemExit(0)
@@ -353,9 +354,9 @@ def caverna():
         time.sleep(4)
         print('Quanto mais fundo, menos você consegue enxergar.')
         time.sleep(4)
-        print('Parece que você encontra uma passagem esguia, mas com a falta de luz você dá de cara de parede em parede e não sai do lugar.')
+        print('Parece que você encontra um caminho apertado, mas com a falta de luz você tropeça, tromba com as paredes e não sai do lugar.')
         time.sleep(6)
-        print('Talvez se você tivesse uma lamparina, você conseguiria desbravar o caminho...')
+        print('Talvez se com a ajuda duma lamparina, você conseguiria desbravar o que há pela frente...')
         time.sleep(4)
         print('Você retraça seus paços e sai da caverna.')
 
