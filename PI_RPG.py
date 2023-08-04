@@ -247,14 +247,14 @@ def vilacuruçá():
         acao = input('1. Conversar\n2. Atacar\n3. Viajar\n[Digite o nome da ação ou seu índice]: ')
 
 def lagodaságuaspassadas():
-    global inicio, quest, quest2, primeiro_combate, combate_final
+    global
     if randint(1,3) == 1:
           escolher_inimigo_comum()
           combate()
           time.sleep(0.35)
           print(narrador+'Você vence o seu inimigo... E olha ao redor.')
     time.sleep(0.35)
-    print('Observando a linda paisagem do lado, você percebe uma caverna. O que deseja fazer, magnânimo aventureiro(a)?')
+    print('Observando a linda paisagem do lago, você percebe uma caverna. O que deseja fazer, magnânimo aventureiro(a)?')
     acao = input('1. Lago\n2. Caverna\n3. Viajar\n[Digite o nome da ação ou seu índice]: ')
     i = 0
     while i != 1:
@@ -271,16 +271,23 @@ def lagodaságuaspassadas():
         print('O que deseja fazer?')
         acao = input('1. Lago\n2. Caverna\n3. Viajar\n[Digite o nome da ação ou seu índice]: ')
 
+#acontecimentos da caverna do Lago das Águas Passadas
 def caverna():
-    global quest, quest2, combate_final
+    global quest2, combate_final
     if quest2 == 1:
         print('Você acende a lamparina que Matilda te deu e adentra a caverna.')
         time.sleep(3)
-        print('Ao caminhar pela caverna, você nota alguns morcegos agressivamente se aproximando de você.')
+        print('Poucos passos além da entrada, você nota alguns morcegos agressivamente se aproximando de você.')
         time.sleep(3)
-        print('Quando você está se preparando para sacar a sua espada de madeira, os morcegos te contornam e não te atacam.\nParece que são sensíveis à luz.')
+        print('No momento que você se prepara para sacar sua espada, os morcegos te contornam e não te atacam.\nParece que luz os repele.')
+        time.sleep(7)
+        print('Você continua a explorar a caverna.')
+        time.sleep(3)
+        print('Há um caminho estreito e extremamente escuro à frente. Por sorte, você consegue exergá-lo o suficiente para não tropeçar com a sua lamparina.')
         time.sleep(6)
-        print('Você continua a explorar a caverna e encontra uma parede com uma escritas calaramente não-humanas.')
+        labirinto = [[jogador.nome[0],0,1,1,1],[1,0,1,1,1],[1,0,1,0,'x'],[1,0,0,0,1],[1,1,1,1,1]]
+        percorre_labirinto(labirinto)
+        print('Ao sair do labiritno, você encontra uma parede com uma escritas claramente não-humanas.')
         time.sleep(5)
         print('Mas você, por algum motivo definitivamente não importante, consegue lê-las fluentemente.')
         time.sleep(5)
@@ -344,14 +351,66 @@ def caverna():
         time.sleep(0.35)
         print(narrador+'Você derrota os morcegos e segue em frente.')
         time.sleep(4)
-        print('Depois de algum tempo você encontra um beco sem saída.')
+        print('Quanto mais fundo, menos você consegue enxergar.')
         time.sleep(4)
-        print('Parece que há algo escrito na parede, mas está muito escuro para conseguir ler.')
-        time.sleep(4)
-        print('Talvez se você tivesse uma lamparina, seria possível ler o q está escrito...')
+        print('Parece que você encontra uma passagem esguia, mas com a falta de luz você dá de cara de parede em parede e não sai do lugar.')
+        time.sleep(6)
+        print('Talvez se você tivesse uma lamparina, você conseguiria desbravar o caminho...')
         time.sleep(4)
         print('Você retraça seus paços e sai da caverna.')
-    
+
+#usada para imprimir a matriz usada como labirinto  
+def mostra_matriz(matriz):
+  for linha in matriz:
+    print(*linha)
+
+#sistema para o jogador andar pelo labirinto
+def percorre_labirinto(matriz):
+    mostra_matriz(matriz)
+    P = jogador.nome[0]
+    while matriz[2][4] != P:
+        print('Você quer andar:')
+        coluna = input('Para esquerda ou para direita (0 para nenhum): ')
+        i = 0
+        while i != 1:
+            if coluna.lower() == 'esquerda':
+                coluna = '-1'
+                i=1
+            elif coluna.lower() == 'direita':
+                coluna = '1'
+                i=1
+            elif coluna == '0':
+                i=1
+            elif (coluna.lower() != 'esquerda' and coluna.lower() != 'direita' and coluna != '0'):
+                print('Entrada inválida. Digite novamente para onde quer ir.')
+                coluna = input('Para esquerda ou para direita (0 para nenhum): ')
+        
+        linha = input('Para cima ou para baixo (0 para nenhum): ')
+        i = 0
+        while i != 1:
+            if linha.lower() == 'cima':
+                linha = '-1'
+                i=1
+            elif linha.lower() == 'baixo':
+                linha = '1'
+                i=1
+            elif linha == '0':
+                i=1
+            elif (linha.lower() != 'cima' and linha.lower() != 'baixo' and linha != '0'):
+                print('Entrada inválida. Digite novamente para onde quer ir.')
+                linha = input('Para cima ou para baixo (0 para nenhum): ')  
+
+        for n_lin in range(len(matriz)):
+            if P in matriz[n_lin]:
+                Px = matriz[n_lin].index(P)
+                Py = matriz.index(matriz[n_lin])
+        if matriz[Py+int(linha)][Px+int(coluna)] != 1:
+            matriz[Py][Px] = 0
+            matriz[Py+int(linha)][Px+int(coluna)] = P
+        else:
+           print('Você se depara com uma parede.')
+        mostra_matriz(matriz)
+
 
 #função de causar dano, pode ser usada com dois objetos/personagens ou uma int e um objeto que recebe o dano
 def causar_dano(agressor, vitima):
@@ -369,6 +428,7 @@ def causar_dano(agressor, vitima):
         elif type(agressor) == int and vitima != jogador:
              print(jogador.cor + jogador.fala_finalizacao)
 
+#função simples de combate entre o jogador e um inimigo.
 def combate():
     global inicio, quest2, primeiro_combate, combate_final
     inimigo.vida = inimigo.vidaT
@@ -400,6 +460,7 @@ def combate():
         else:
             print('Escolha logo!!! Você tá no meio de uma batalha!!!')
 
+#função que define qual será o inimigo que o jogador irá enfrentar em combate, excluindo os inimigos especiais.
 def escolher_inimigo_comum():
     x = randint(0,1)
     inimigo_escolhido = lista_inimigos_comuns[x]

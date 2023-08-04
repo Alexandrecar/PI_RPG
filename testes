@@ -41,24 +41,34 @@ def percorre_labirinto(matriz):
     while matriz[2][4] != P:
         print('Você quer andar:')
         coluna = input('Para esquerda ou para direita (0 para nenhum): ')
-        
-        if coluna.lower() == 'esquerda':
-            coluna = '-1'
-        elif coluna.lower() == 'direita':
-            coluna = '1'
+        i = 0
+        while i != 1:
+            if coluna.lower() == 'esquerda':
+                coluna = '-1'
+                i=1
+            elif coluna.lower() == 'direita':
+                coluna = '1'
+                i=1
+            elif coluna == '0':
+                i=1
+            elif (coluna.lower() != 'esquerda' and coluna.lower() != 'direita' and coluna != '0'):
+                print('Entrada inválida. Digite novamente para onde quer ir.')
+                coluna = input('Para esquerda ou para direita (0 para nenhum): ')
         
         linha = input('Para cima ou para baixo (0 para nenhum): ')
-        if linha.lower() == 'cima':
-            linha = '-1'
-        elif linha.lower() == 'baixo':
-            linha = '1'
-
-        elif (coluna.lower() != 'esquerda' and coluna.lower() != 'direita' and coluna != '0'):
-            print('Entrada inválida. Digite novamente para onde você quer ir.')
-            coluna = '0'
-            linha = '0'
-        
-        #Continuar a acertar. Falta coisa
+        i = 0
+        while i != 1:
+            if linha.lower() == 'cima':
+                linha = '-1'
+                i=1
+            elif linha.lower() == 'baixo':
+                linha = '1'
+                i=1
+            elif linha == '0':
+                i=1
+            elif (linha.lower() != 'cima' and linha.lower() != 'baixo' and linha != '0'):
+                print('Entrada inválida. Digite novamente para onde quer ir.')
+                linha = input('Para cima ou para baixo (0 para nenhum): ')  
 
         for n_lin in range(len(matriz)):
             if P in matriz[n_lin]:
