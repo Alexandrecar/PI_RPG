@@ -7,7 +7,7 @@ def intro():
     global lugar, inicio, quest, quest2
     inicio = 1
     quest = 0
-    quest2 = 1
+    quest2 = 0
     print(narrador + 'Você acorda no meio de uma floresta, apenas com um desejo insaciável de se aventurar.')
     jogador.nome = input('Qual o seu nome grande aventureiro? ')
     print('Ahh, então você é',jogador.cor+jogador.nome,narrador+'...')
