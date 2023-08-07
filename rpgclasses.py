@@ -4,7 +4,7 @@ from colorama import Fore, Back, Style
 import time
 
 class personagem:
-  def __init__(self, nome, vida, vidaT, dano, prob, cor, fala_agressao, fala_finalizacao):
+   def __init__(self, nome, vida, vidaT, dano, prob, cor, fala_agressao, fala_finalizacao):
       self.nome = nome #nome do personagem
       self.vida = vida #vida líquida do personagem
       self.vidaT = vidaT #vida total do personagem
